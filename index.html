@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Joran Schoorlemmer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+</style>
+</head>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+      <a href="./index.html" class="w3-bar-item w3-button"><b>Joran</b> Schoorlemmer</a>
+      <!-- Float links to the right. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+      <a href="./index.html" class="w3-bar-item w3-button">Projects</a>
+      <a href="./CV.htm" class="w3-bar-item w3-button">CV</a>
+      <a href="./randomstuff.htm" class="w3-bar-item w3-button">Test</a>
+      </div>
+  </div>
+</div>
+<body class="w3-light-grey">
+
+<!-- Page Container -->
+<div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+  <!-- The Grid -->
+  <div class="w3-row-padding">
+  
+    <!-- Left Column -->
+    <div class="w3-quarter" w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br><br>
+    
+        <div class="w3-container">
+          <img src="images/profile.jpg" style="width:45%;" class="w3-round"><br><br>
+          <h4><b>Joran Schoorlemmer</b></h4>
+          <p>This website contains information on my research projects</p>
+        </div>
+        <div class="w3-panel w3-large">
+          <a href="mailto:jschoorlemmer123@gmail.com" class="fa fa-envelope w3-hover-opacity"></a>
+          <a href="https://www.linkedin.com/in/joran-schoorlemmer/" class="fa fa-linkedin w3-hover-opacity"></a>
+        </div>
+
+    <!-- End Left Column -->
+    </div>
+
+    <!-- Right Column -->
+    <div class="w3-threequarter w3-margin-top" id="projectContainer"><br>
+      <!-- Header -->
+  <header id="Projects">
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container">
+    <h1><b>My Projects</b></h1>
+    <div class="w3-section w3-bottombar w3-padding-16">
+      <span class="w3-margin-right">Filter:</span> 
+      <button class="w3-button w3-white" onclick="filterProjects('all')">ALL</button>
+      <button class="w3-button w3-white" onclick="filterProjects('Python')">Python</button>
+      <button class="w3-button w3-white" onclick="filterProjects('Molecular Dynamics')">Molecular Dynamics</button>
+      <button class="w3-button w3-white" onclick="filterProjects('omics')">Gen-/Prote-/Metabolomics</button>    
+    </div>
+    </div>
+  </header>
+  
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding" id="projectContainer">
+    <button class="w3-third w3-container w3-margin-bottom" id="internshipBtn" onclick="openModal('internshipModal','internshipclose')">
+      <img src="images/microscope.jpg" alt="HEK293" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Internship Boehringer Ingelheim</b></p>
+        <p>Characterizing HEK293 metabolism for varying growth media using metabolic modelling.</p>
+        <p>Keywords: Python, Metabolic Flux Analysis, Metabolomics</p>
+      </div>
+    </button>
+    <button class="w3-third w3-container w3-margin-bottom" id="mscthesisBtn" onclick="openModal('mscthesisModal','mscthesisclose')">
+      <img src="images/phage.png" alt="phage" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>MSc Thesis</b></p>
+        <p>Phages in different thermal stages
+          A machine learning study on thermal stability and diversity of bacteriophage protein
+          structures using AlphaFold.</p>
+        <p>Keywords: Phages, Proteomics, Machine Learning, AlphaFold, Python, R</p>
+      </div>
+    </button>
+    <button class="w3-third w3-container w3-margin-bottom" id="bscthesisBtn" onclick="openModal('bscthesisModal','bscthesisclose')">
+      <img src="images/C3M.png" alt="C3M" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>BSc Thesis</b></p>
+        <p>The Effect of the Stoichiometry on the 3D-structure of Complex Coacervate Core Micelles (C3Ms).</p>
+        <p>Keywords: Molecular Dynamics, C3Ms, Atomistic Simulations, HOOMD-blue, Python </p>
+      </div>
+    </button>
+  </div>
+  
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding">
+    <button class="w3-third w3-container w3-margin-bottom" id="actBtn" onclick="openModal('actModal','actclose')">
+      <img src="images/ACT.png" alt="ACT" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Academic Consultancy Training</b></p>
+        <p>Individualized training, nutrition, and recovery programs for elite athletes based on biomarker testing trough lab-on-a-chip technology.</p>
+        <p>Keywords: Metabolomics, Consultancy, Nutrition</p>
+      </div>
+    </button>
+    <button class="w3-third w3-container w3-margin-bottom" id="advbifBtn" onclick="openModal('advbifModal','advbifclose')">
+      <img src="images/arabidopsis.jpg" alt="a. thaliana" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Advanced Bioinformatics</b></p>
+        <p>Effect of bacterial inoculation on gene expression in <i>Arabidopsis Thaliana.</i></p>
+        <p>Keywords: Genomics, Transcriptomics, Literature, Snakemake data pipeline</p>
+      </div>
+    </button>
+    <button class="w3-third w3-container w3-margin-bottom" id="advsmBtn" onclick="openModal('advsmModal','advsmclose')">
+      <img src="images/softmatter.jpg.png" alt="bonds" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Advanced Soft Matter</b></p>
+        <p>Bonds and Breakups, a stressful model. Modeling Cell Adhesion to Extra-cellular Matrix with Focal Adhesion Complexes</p>
+        <p>Keywords: Molecular Dynamics, extracellular matrix, LAMMPS, Python</p>
+      </div>
+    </button>
+  </div>
+
+  <!-- Third Photo Grid-->
+  <div class="w3-row-padding">
+    <button class="w3-third w3-container w3-margin-bottom" id="cmbmBtn" onclick="openModal('cmbmModal','cmbmclose')">
+      <img src="images/icebinding.png" alt="icebinding proteins" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Computer Modelling of Biomolecules</b></p>
+        <p>Simulating ice nucleating proteins using RoseTTAFold</p>
+        <p>Keywords: Proteomics, Molecular Dynamics, roseTTAFold, Python</p>
+      </div>
+    </button>
+    <button class="w3-third w3-container w3-margin-bottom" id="cyclingBtn" onclick="openModal('cyclingModal','cyclingclose')">
+      <img src="images/cycling.jpg" alt="cycling" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Perfect Fantasy Cycling team</b></p>
+        <p>Analysing cycling results to come up with the perfect fantasy cyling team in retrospective.</p>
+        <p>Keywords: Fun, Data management, HTML</p>
+      </div>
+    </button>
+    <button class="w3-third w3-container w3-margin-bottom" id="dmBtn" onclick="openModal('dmModal','dmclose')">
+      <img src="images/mushrooms.jpg" alt="Urbanfunghi" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Data Management</b></p>
+        <p>Design and implementation of a SQL database for startup Urban Funghi</p>
+        <p>Keywords: Data management, SQL, MS Access, mySQL</p>
+      </div>
+    </button>
+  </div>
+  <!-- End Right Column -->
+  </div>
+    
+  <!-- End Grid -->
+  </div>
+  
+  <!-- End Page Container -->
+</div>
+<footer class="w3-container w3-light-grey w3-center w3-margin-top">
+  <p>Find me on LinkedIn or email.</p>
+  <a href="mailto:jschoorlemmer123@gmail.com" class="fa fa-envelope w3-hover-opacity"></a>
+  <a href="https://www.linkedin.com/in/joran-schoorlemmer/" class="fa fa-linkedin w3-hover-opacity"></a>
+</footer>
+<!-- The Modal -->
+<div id="internshipModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="internshipclose"class="close">&times;</span>
+    <h3>Characterizing HEK293 metabolism for varying growth media using metabolic modelling</h3>
+    <p>During my time at <a href="https://www.boehringer-ingelheim.com">Boehringer Ingelheim</a>, I worked in the Bioprocess Development Biologicals department.
+    My responsibilities were designing and executing lab experiments, after which I wrote scripts to analyze and model the output data. The abstract of this project is shown below.</p>
+    <h4>Abstract</h4>
+    <p>Biopharmaceuticals like antibodies and viral vectors are extremely potent medicals due to their
+      high specificity and efficacy. While antibodies are already produced on a large scale, the
+      production of novel viral therapeutics is more complicated. These viral vectors and vaccines
+      require multiple post translational modifications which are not feasible in the current internal
+      production platforms in the human pharma business unit of Boehringer Ingelheim. For these
+      purposes, HEK293 cells will build the basis for a suitable platform. This cell line from human
+      origin allows for production of these medicines. To create this platform, a thorough
+      understanding of the process and cell metabolism is required. In this project, a model is created
+      to describe and predict the behavior of HEK293 cells using Metabolic Flux Analyses. This model
+      can also be used for optimizing media formulations, by identifying bottlenecks in the
+      metabolism of the cells, thereby majorly increasing development speed and success. The model
+      is tested and verified in a Design of Experiment setup using the ambr®15 bioreactor. Investigated
+      factors are the seeding cell density, glucose limit, glutamine source, glutamine source
+      concentration and tyrosine concentration of the growth medium. The seeding cell density was
+      found to be highly important for controlling and shifting the metabolism of the cells into a
+      stationary phase. The tyrosine and glutamine source concentrations were also relevant for more
+      specific reactions as alanine transaminase. This model provides a basis for more in depth
+      research on the differences between growth phases and eventually implementing virus
+      production.</p>
+  </div>
+</div>
+
+<div id="mscthesisModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="mscthesisclose"class="close">&times;</span>
+    <h3>Phages in different thermal stages. A machine learning study on thermal stability and diversity of bacteriophage protein
+      structures using AlphaFold.</h3>
+    <p>For my Master thesis, I worked on uncovering the underlaying characteristics of thermophilic bacteriophages. 
+      The focus for this project was on the surfaces of structural proteins, for which AlphaFFold structures were used. The abstrat of the project as well as the full thesis is shown below.</p>
+    <h4>Abstract</h4>
+    <p>Phages, viruses that infect bacteria, are found in a wide range of environments and have developed
+      advanced strategies to survive in these surroundings. To get a better understanding of their stability
+      under thermal stress, this project performed analyses of the strategies phages use to withstand heat.
+      Structural phage protein surfaces were classified and compared with each other. This gave insight into
+      the wide diversity of these proteins and was used to predict thermostability using machine learning
+      models. Using two ways of assessing thermostability, random forest models were created for proteins
+      separated by structural class. Proteins were characterized using structural features such as the
+      compactness orsurface charge density of the protein and using sequential features retrieved using the
+      deep learning embedding of UniRep. 75,567 structures of proteins were retrieved from the novel
+      AlphaFold database and were checked for inaccuracies using a custom filtering pipeline, filtering out
+      22,843 low confidence entries and 23,454 loose structures. Model performance was found to inversely
+      correlate with protein class diversity, indicating that within protein classes different strategies are used
+      to withstand thermal stress. Combining different classes in one model led to lower predictive
+      performance, confirming the high diversity between phage protein classes. The best performing model
+      with an F1 score of 0.52 used structural features and 16S rRNA GC% estimated temperatures for the
+      shaft class. This is far better than forced positive classification (F1=0.08) and showed the importance
+      3 of charged and turn surface residues in shaft proteins for thermostability. The use of phages in phage
+      therapy to battle antibiotic-resistant bacteria and medicine delivery through phage design are very
+      promising. However, problems regarding preparation and stabilization currently complicate the
+      implementation of these phage applications. The novel characterizations of phage proteins in this
+      project can be used to more accurately depict phages for phage therapy & design.</p>
+    <a href="./files/20230413_MSc_thesis_JS.pdf">Click here for the full thesis.</a>
+    </div>
+</div>
+
+<div id="bscthesisModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="bscthesisclose"class="close">&times;</span>
+    <h3>The Effect of the Stoichiometry on the 3D-structure of C3Ms</h3>
+    <p>This bachelor thesis from 2019 focussed on the 3D structure of Complex Core Coacervate Micelles. 
+      The project used Molecular Dynamics simulations and a little bit of labwork to support the modelling findings.
+      A brief abstract and the full thesis can be found below.
+    </p>
+    <h4>Abstract</h4>
+    <p>Complex Coacervate Core Micelles (C3Ms) are molecular structures with a prosperous future in many
+      applications. They can play a role in water purification, have antifouling properties and can be involved in encapsulating processes.
+      They consist of multiple polyelectrolytes, which form a complex coacervate core and a neutral corona. 
+      The combination of these to domains allows for binding polar (bio)molecules while remaining uncharged for transport.
+      In this project, the effect of the stoichiometry on the 3D structure is analyzed, with the stoichiometry being the ratio between positive and negatively charged electrolytes.
+      This is done using Langevin Dynamics simulations. These simulations showed a clear correlation between the stoichiometry and the size of the particles, especially at high polyelectrolyte lenghts.
+      These large polyelectrolytes result in large micelles at a low f+ ratio, being a surplus of negatively charged electrolytes. When this ratio was more even, these large micelles did not form</p>
+      <a href="./files/Thesis_final.pdf">Click here for the full thesis.</a>
+  </div>
+</div>
+<div id="actModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="actclose"class="close">&times;</span>
+    <h3>Academic Consultancy Training: Biomarker testing through lab-on-a-chip technology.</h3>
+    <p>
+      In this project, I worked in an interdisciplinary team for <a href="https://www.sensurhealth.nl/"> SensUR Health</a>. 
+      Together with Nutrition & Health students, we designed a concept for a lab-on-a-chip to predict individual recovery patterns for athletes using biomarkers.
+      As the project was confidential, I'm not allowed to share more information here.
+    </p>
+  </div>
+</div>
+
+<div id="advbifModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="advbifclose"class="close">&times;</span>
+    <h3>Effect of bacterial inoculation on gene
+      expression in <i>Arabidopsis Thaliana.</i></h3>
+    <p>
+      For the course Advanced Bioinformatics, I reran the analysis of a <a href="https://pubmed.ncbi.nlm.nih.gov/34007033/">paper</a> to see if we could find the same results.
+      Next to this, we used their data to get an insight in the specific pathways expressed in response to bacterial inoculation. The abstract and results are shown below.
+    </p>
+    <h4>Abstract</h4>
+    <p>Bacteria can form a dangerous threat to plants. To protect itself, a plant can use many different
+      molecular responses to protect itself from these hazardous pathogens. Why specific molecular
+      pathways are expressed however, is currently not well understood. In this project we look at a paper
+      by (Maier et al., 2021) and use its RNA sequence data of <i>Arabidopsis Thaliana</i> plants to rerun their
+      data analysis. We try to find if different bacteria eliciting a strong response constitute to the same
+      pathways being expressed or not. Also, the so called GNSR genes from the paper are looked into,
+      and we try to figure out if these are actually consistently expressed in the different samples. Our
+      results show that similar pathways are expressed in all samples. One of these pathways is the
+      phenylpropanoid pathway, involved in lignification of the cell wall. However, some differences
+      between samples can be found. It is still uncertain why this is the case as these differences are not
+      caused by the phylum or pathogenicity of the bacteria.</p>
+      <a href="./files/Report_JS_BIF30806.pdf">Click here for the full report.</a>
+  </div>
+</div>
+
+<div id="advsmModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="advsmclose"class="close">&times;</span>
+    <h3>
+      <b>Bonds and Breakups, a stressful model.</b> Modeling Cell Adhesion to Extra-cellular Matrix with Focal Adhesion Complexes
+    </h3>
+    <p>
+      In this project, we used Atomistic Modelling to re-enact the behavior of focal adhesion complexes to the extracellur matrix of mammalian cells.
+      We found that the breakage pattern of these complexes is non random, following a domino effect from an initial point of failure. At the end of the project,
+      we made a poster which won the Advanced Soft Matter poster prize. The poster can be found <a href="./files/advSM.pdf">here</a>.
+    </p>
+  </div>
+</div>
+<div id="cmbmModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="cmbmclose"class="close">&times;</span>
+    <h3>Simulating ice nucleating proteins.</h3>
+    <p>
+    In this project, Molecular Dynamics simulations were used to find a stable ice nucleating protein. 
+    Pyrosetta software was used to iterate over different configurations for a backbone and specific motifs. The abstract and report can be found below.</p>
+    <h4>Abstract</h4>
+    <p>Ice binding proteins have many applications, ranging from snow cannons to microvalves in
+      microtubing. However, these proteins are currently impossible to synthesize. Specific bacteria can
+      transport these proteins on their membrane, but creating a pure ice binding protein is impossible.
+      This is due to the proteins having high amounts of 𝛽-helices, which are very unstable in synthesis. In
+      this project, ice binding proteins are synthesized on a much more stable back bone, 𝛼-helices. An ice
+      binding motif (TxxxAxxxAxx)n is bound to the 𝛼 helix and is as such far easier to stabilize. Now, these
+      proteins can be synthesized and can be used in this wide range of applications, without the hassle of
+      dealing with living bacteria. A stable structure containing the ice binding motif was found during the design phase. Multiple
+      configurations were found with low score values. The coil radius was found to be the most impactful
+      parameter, while the twist and the phase of the protein seem to have less effect. Three local minima
+      were found for the radius, these are 5.2-6 Å, 6.3-6.9 Å, 6.9-7.5 Å. The effect of the larger radii was a
+      decrease in attraction between the three chains. Meanwhile, larger, more hydrophobic amino acids
+      could be sampled in the core, resulting in a lower score.
+      However, when looking at the fold and dock step, the likelihood of creating this structure from
+      scratch is very low. Three different sequences were looked at, these all resulted in a slightly different
+      structure with RMSD = 1.5 Å. For all 3, another completely different structure was present at RMSD =
+      8 or 10 Å. This indicates that the probability of the desired structure forming in the lab is very low.
+      In the future, a broader range of input parameters must be taken in account. This could be a higher
+      number of chains, fixing hydrogen bonds in the core or other parameters.</p>
+      <a href="./files/ReportIceBindersBoltzman.pdf">Click here for the full report.</a>
+  </div>
+</div>
+
+<div id="cyclingModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="cyclingclose"class="close">&times;</span>
+    <h3>
+      The perfect fantasy cycling team.
+    </h3>
+    <p>In this personal project, I created an algorithm using data from <a href="https://www.procyclingstats.com/index.php">procyclingstats.com</a> to find the ultimate fantasy cycling team for Scorito.
+    The results for the Tour de france 2023 can be found <a href="./files/outputteam2023.txt">here</a>.</p>
+    
+    <p>
+      First, all points for each rider is retrieved using custom dictionaries and the results from ProCyclingStats.com. 
+      Next, an algorithm iterates over all possible teams which fit with the budget, trying every selection for each day with that team. The highest scoring team is stored.
+      In the output file, every stage is printed with the 9 selected riders including a captain with their scored points. At the end, the total amount of points scored in the ideal team for each rider is printed.
+    </p>
+  </div>
+</div>
+
+<div id="dmModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="dmclose"class="close">&times;</span>
+    <h3>Design and implementation of a SQL database for startup <a href="https://www.urbanfunghi.com/">Urban Funghi</a></h3>
+    <p>
+      In this project, we designed a data management system in Microsoft Access for the startup Urban Funghi to store and analyze the data of their Oyster Mushroom production process.
+      SQL queries were used to retrieve their data and to quickly gete insight in the underlaying relations.
+      As the project is confidential, I cannot share in depth details on their production setup and the database
+    </p>
+  </div>
+</div>
+
+<script>
+// Script to open and close sidebar
+function openModal(modalId,close) {
+    var modal = document.getElementById(modalId);
+    var span = document.getElementById(close);
+    modal.style.display = 'block';
+
+    // Add event listener to close modal when clicking outside of it
+    window.addEventListener('click', function(event) {
+      if (event.target == modal) {
+        closeModal(modalId);
+      }
+    });
+    // Add event listener to close modal when clicking outside of it
+    span.addEventListener('click', function(event) {
+        closeModal(modalId);
+    });
+  }
+// Function to close a modal by ID
+function closeModal(modalId) {
+  var modal = document.getElementById(modalId);
+  modal.style.display = 'none';
+}
+
+function filterProjects(keyword) {
+  var buttons = document.getElementsByClassName("w3-third");
+
+  for (var i = 0; i < buttons.length; i++) {
+    var keywords = buttons[i].getElementsByTagName("p")[2].innerText.toLowerCase();
+    var isMatching = keyword === 'all' || keywords.includes(keyword.toLowerCase());
+
+    // Toggle visibility based on matching keyword
+    buttons[i].style.display = isMatching ? 'block' : 'none';
+  }
+}
+</script>
+
+</body>
+</html>
