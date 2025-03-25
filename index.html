@@ -75,9 +75,9 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <div class="w3-quarter" w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br><br>
     
         <div class="w3-container">
-          <img src="images/profile.jpg" style="width:45%;" class="w3-round"><br><br>
+          <img src="images/profi.jpg" style="width:45%;" class="w3-round"><br><br>
           <h4><b>Joran Schoorlemmer</b></h4>
-          <p>This website contains information on my research projects</p>
+          <p>This website contains information on my current and past research projects. Feel free to have a look around and reach out!</p>
         </div>
         <div class="w3-panel w3-large">
           <a href="mailto:jschoorlemmer123@gmail.com" class="fa fa-envelope w3-hover-opacity"></a>
@@ -99,12 +99,39 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
       <button class="w3-button w3-white" onclick="filterProjects('all')">ALL</button>
       <button class="w3-button w3-white" onclick="filterProjects('Python')">Python</button>
       <button class="w3-button w3-white" onclick="filterProjects('Molecular Dynamics')">Molecular Dynamics</button>
-      <button class="w3-button w3-white" onclick="filterProjects('omics')">Gen-/Prote-/Metabolomics</button>    
+      <button class="w3-button w3-white" onclick="filterProjects('omics')">Gen-/Prote-/Metabolomics</button>
+      <button class="w3-button w3-white" onclick="filterProjects('Space')">Space</button>
     </div>
     </div>
   </header>
-  
   <!-- First Photo Grid-->
+  <div class="w3-row-padding" id="projectContainer">
+    <button class="w3-third w3-container w3-margin-bottom" id="space1Btn" onclick="openModal('space1Modal','space1close')">
+      <img src="images/literature-review.jpeg" alt="HEK293" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Space-review</b></p>
+        <p>A systematic review on the quality & clinical applicability of explainable AI CDSS tools</p>
+        <p>Keywords: Space, systematic review, CDSS</p>
+      </div>
+    </button>
+    <button class="w3-third w3-container w3-margin-bottom" id="space2Btn" onclick="openModal('space2Modal','space2close')">
+      <img src="images/psatest.jpg" alt="phage" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Space-PSA</b></p>
+        <p>Dynamic modelling of PSA trajectories to personalise follow-up care for prostate cancer patients</p>
+        <p>Keywords: Space, Machine Learning, Python, Prostate cancer</p>
+      </div>
+    </button>
+    <button class="w3-third w3-container w3-margin-bottom" id="space3Btn" onclick="openModal('space3Modal','space3close')">
+      <img src="images/diaper.png" alt="C3M" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Space-Incontinence</b></p>
+        <p>Predicting incontinence in prostate cancer patients following a prostatectomy using bayesian networks</p>
+        <p>Keywords: Space, Prostate cancer, Python </p>
+      </div>
+    </button>
+  </div>
+  <!-- Second Photo Grid-->
   <div class="w3-row-padding" id="projectContainer">
     <button class="w3-third w3-container w3-margin-bottom" id="internshipBtn" onclick="openModal('internshipModal','internshipclose')">
       <img src="images/microscope.jpg" alt="HEK293" style="width:100%" class="w3-hover-opacity">
@@ -134,7 +161,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </button>
   </div>
   
-  <!-- Second Photo Grid-->
+  <!-- Third Photo Grid-->
   <div class="w3-row-padding">
     <button class="w3-third w3-container w3-margin-bottom" id="actBtn" onclick="openModal('actModal','actclose')">
       <img src="images/ACT.png" alt="ACT" style="width:100%" class="w3-hover-opacity">
@@ -162,7 +189,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     </button>
   </div>
 
-  <!-- Third Photo Grid-->
+  <!-- Fourth Photo Grid-->
   <div class="w3-row-padding">
     <button class="w3-third w3-container w3-margin-bottom" id="cmbmBtn" onclick="openModal('cmbmModal','cmbmclose')">
       <img src="images/icebinding.png" alt="icebinding proteins" style="width:100%" class="w3-hover-opacity">
@@ -203,6 +230,28 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
   <a href="https://www.linkedin.com/in/joran-schoorlemmer/" class="fa fa-linkedin w3-hover-opacity"></a>
 </footer>
 <!-- The Modal -->
+<div id="space2Modal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span id="space2close"class="close">&times;</span>
+    <h3>Dynamic modelling of PSA trajectories to personalise follow-up care for prostate cancer patients</h3>
+    <p>Co-authors: Yvonne M. Geurts, Marcel Verheij, Henk van der Poel, Lonneke van de Poll-Franse, Iris Walraven</p>
+    <p>As a part of the SPACE project, we are trying to forecast the prostate specific antigen (PSA) trajectory of Prostate Cancer (PCa) patients after a prostatectomy.
+      SPACE is a part of the <a href="https://www.personalisedcareinoncology.nl/">PersOn consortium.</a></p>
+    <h4>Abstract</h4>
+    <p>Background:
+      <br>Current follow-up (FU) guidelines for prostate cancer patients after prostatectomy include frequent prostate-specific antigen (PSA) checks, which pose a high burden on patients and healthcare systems. Existing tools to optimize FU frequency cannot dynamically integrate longitudinal PSA data, limiting clinical use. We created a methodology to map sparse longitudinal PSA data to functions for dynamically forecasting PSA trajectories during FU.
+      <br>Methods:
+      <br>We used data from the prospective Dutch Prostate Cancer Network, including 832 patients treated with prostatectomy from 2005 to 2021. We first performed a functional Principal Component Analysis (fPCA) to capture PSA data variance in multiple Eigenfunctions and fPCA scores. Next, an ensemble regression model was trained to predict individual fPCA scores using clinical variables (e.g., age and Gleason score). Last, PSA trajectories of patients were forecasted by combining the population Eigenfunctions and predicted fPCA scores at the first FU check.
+      <br> Results:
+      <br>Median age and PSA level at the time of prostatectomy were 64 years (IQR 59-68) and 8.0 ng/mL (IQR 5.6-11.7), respectively. Median follow-up was 3.2 years (IQR 1.7-5.0) with 6 PSA tests (IQR 4-10). Preliminary results showed that fPCA could describe the PSA trajectory of patients, capturing 97% of variance in the first Eigenfunction. However, ensemble model performance was low with the best regressor in the model explaining 10% of variance.
+      <br>Conclusion:
+      <br>Preliminary results showed that fPCA could capture data variance for dynamic forecasting of PSA trajectories. Next steps include improving model performance and assessing to what extent the trajectories can reduce PSA test frequency in the clinic.
+      </p>
+  </div>
+</div>
+
 <div id="internshipModal" class="modal">
 
   <!-- Modal content -->
@@ -210,27 +259,27 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
     <span id="internshipclose"class="close">&times;</span>
     <h3>Characterizing HEK293 metabolism for varying growth media using metabolic modelling</h3>
     <p>During my time at <a href="https://www.boehringer-ingelheim.com">Boehringer Ingelheim</a>, I worked in the Bioprocess Development Biologicals department.
-    My responsibilities were designing and executing lab experiments, after which I wrote scripts to analyze and model the output data. The abstract of this project is shown below.</p>
-    <h4>Abstract</h4>
-    <p>Biopharmaceuticals like antibodies and viral vectors are extremely potent medicals due to their
-      high specificity and efficacy. While antibodies are already produced on a large scale, the
-      production of novel viral therapeutics is more complicated. These viral vectors and vaccines
-      require multiple post translational modifications which are not feasible in the current internal
-      production platforms in the human pharma business unit of Boehringer Ingelheim. For these
-      purposes, HEK293 cells will build the basis for a suitable platform. This cell line from human
-      origin allows for production of these medicines. To create this platform, a thorough
-      understanding of the process and cell metabolism is required. In this project, a model is created
-      to describe and predict the behavior of HEK293 cells using Metabolic Flux Analyses. This model
-      can also be used for optimizing media formulations, by identifying bottlenecks in the
-      metabolism of the cells, thereby majorly increasing development speed and success. The model
-      is tested and verified in a Design of Experiment setup using the ambr®15 bioreactor. Investigated
-      factors are the seeding cell density, glucose limit, glutamine source, glutamine source
-      concentration and tyrosine concentration of the growth medium. The seeding cell density was
-      found to be highly important for controlling and shifting the metabolism of the cells into a
-      stationary phase. The tyrosine and glutamine source concentrations were also relevant for more
-      specific reactions as alanine transaminase. This model provides a basis for more in depth
-      research on the differences between growth phases and eventually implementing virus
-      production.</p>
+      My responsibilities were designing and executing lab experiments, after which I wrote scripts to analyze and model the output data. The abstract of this project is shown below.</p>
+      <h4>Abstract</h4>
+      <p>Biopharmaceuticals like antibodies and viral vectors are extremely potent medicals due to their
+        high specificity and efficacy. While antibodies are already produced on a large scale, the
+        production of novel viral therapeutics is more complicated. These viral vectors and vaccines
+        require multiple post translational modifications which are not feasible in the current internal
+        production platforms in the human pharma business unit of Boehringer Ingelheim. For these
+        purposes, HEK293 cells will build the basis for a suitable platform. This cell line from human
+        origin allows for production of these medicines. To create this platform, a thorough
+        understanding of the process and cell metabolism is required. In this project, a model is created
+        to describe and predict the behavior of HEK293 cells using Metabolic Flux Analyses. This model
+        can also be used for optimizing media formulations, by identifying bottlenecks in the
+        metabolism of the cells, thereby majorly increasing development speed and success. The model
+        is tested and verified in a Design of Experiment setup using the ambr®15 bioreactor. Investigated
+        factors are the seeding cell density, glucose limit, glutamine source, glutamine source
+        concentration and tyrosine concentration of the growth medium. The seeding cell density was
+        found to be highly important for controlling and shifting the metabolism of the cells into a
+        stationary phase. The tyrosine and glutamine source concentrations were also relevant for more
+        specific reactions as alanine transaminase. This model provides a basis for more in depth
+        research on the differences between growth phases and eventually implementing virus
+        production.</p>
   </div>
 </div>
 
